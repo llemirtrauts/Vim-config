@@ -1,11 +1,122 @@
 # Prototype
-snippet proto
-	${1:class_name}.prototype.${2:method_name} =
-	function(${3:first_argument}) {
-		${4:// body...}
-	};
+snippet public
+   /**
+	  * Description of the public method 
+	  * 
+	  * @example
+	  * var foo = $1.$2 ...
+	  *
+	  * @param {type} $3
+	  * @return {type}
+	  */
+	 ${1:class_name}.prototype.${2:method_name} = function(${3:first_argument}) {
+	    ${4:// body...}
+	 };
+
+# Private
+snippet private
+	 /**
+	  * Description of the private method 
+	  * 
+	  * @private
+	  * @param {type} $3
+	  * @return {type}
+	  */
+	 ${1:class_name}.prototype._${2:method_name} = function(${3:first_argument}) {
+	    ${4:// body...}
+	 };
+
+# static
+snippet static
+	 /**
+	  * Description of the static method 
+	  * 
+	  * @static
+	  * @private
+	  * @param {type} $3
+	  * @return {type}
+	  */
+	 ${1:class_name}.prototype._${2:method_name} = function(${3:first_argument}) {
+	    ${4:// body...}
+	 };
+# factory
+snippet factory
+   /**
+	  * Description of the factory method 
+	  * 
+	  * @static
+	  * @param {type} $3
+	  * @return {$1}
+	  */
+	 ${1:class_name}.prototype.${2:method_name} = function(${3:first_argument}) {
+	    ${4:// body...}
+	 };
+# Class
+snippet class
+	 /**
+	  * @class $1
+	  * @exports $1 as $2
+	  */
+	 (function() {
+   /**
+		* Description of the class, it's uses and brief implementation information.
+		* @name $2
+		* @constructor
+		*/
+   function ${1:class_name}() {
+
+   }
+   ${2:namespaced_object} = $1;	
+   
+   }());
+
+# Singleton
+snippet single
+	/**
+	 * @class $1
+	 * @exports $1 as $2
+	 */
+	(function() {
+
+		/**
+		 * Description of the class, it's uses and brief implementation information.
+		 * @name $2
+		 * @constructor
+		 */
+		function ${1:class_name}() {
+
+		}
+		
+	   ${2:namespaced_object} = new $1();	
+	}());
+# TestCase
+snippet testcase
+	TestCase( "${1:test_case_name}", {
+		
+		setUp: function() {
+			${2}
+		},
+
+		tearDown: function() {
+
+		}
+	} );
+# Test
+snippet test
+	"${1:test_description}": function() {
+		${2}
+	}
 # Function
 snippet fun
+	/**
+	 * description
+	 *
+	 * @example
+	 * var foo = $1($2)
+	 *
+	 * @param {type} $2
+	 * @return {type}
+	 */
 	function ${1:function_name} (${2:argument}) {
 		${3:// body...}
 	}
@@ -14,50 +125,26 @@ snippet f
 	function(${1}) {${2}};
 # if
 snippet if
-	if (${1:true}) {${2}}
+	if (${1:true}) {
+		${2} 
+	};
 # if ... else
 snippet ife
-	if (${1:true}) {${2}}
-	else{${3}}
-# tertiary conditional
-snippet t
-	${1:/* condition */} ? ${2:a} : ${3:b}
-# switch
-snippet switch
-	switch(${1:expression}) {
-		case '${3:case}':
-			${4:// code}
-			break;
-		${5}
-		default:
-			${2:// code}
-	}
-# case
-snippet case
-	case '${1:case}':
-		${2:// code}
-		break;
-	${3}
+	if (${1:true}) {
+		${2}
+	} else {
+		${3} 
+	};
 # for (...) {...}
 snippet for
-	for (var ${2:i} = 0; $2 < ${1:Things}.length; $2${3:++}) {
+	for (var ${2:i} = 0, l = ${1:Things}.length; $2 < $1.length; $2${3:++}) {
 		${4:$1[$2]}
-	};
+	}
 # for (...) {...} (Improved Native For-Loop)
 snippet forr
 	for (var ${2:i} = ${1:Things}.length - 1; $2 >= 0; $2${3:--}) {
 		${4:$1[$2]}
 	};
-# while (...) {...}
-snippet wh
-	while (${1:/* condition */}) {
-		${2:/* code */}
-	}
-# do...while
-snippet do
-	do {
-		${2:/* code */}
-	} while (${1:/* condition */});
 # Object Method
 snippet :f
 	${1:method_name}: function(${2:attribute}) {
@@ -65,10 +152,10 @@ snippet :f
 	}${3:,}
 # setTimeout function
 snippet timeout
-	setTimeout(function() {${3}}${2}, ${1:10};
-# Get Elements
-snippet get
-	getElementsBy${1:TagName}('${2}')${3}
-# Get Element
-snippet gett
-	getElementBy${1:Id}('${2}')${3}
+	Window.setTimeout(function() {
+		${2}
+	}, ${1:10});
+# IG callback
+snippet callback
+	IG.util.Fn.callback(${1:fn}, ${2:scope}, ${3:args}, ${4:argPosition});
+
