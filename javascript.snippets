@@ -1,75 +1,74 @@
 # Prototype
 snippet public
-   /**
-	  * Description of the public method 
-	  * 
-	  * @example
-	  * var foo = $1.$2 ...
-	  *
-	  * @param {type} $3
-	  * @return {type}
-	  */
-	 ${1:class_name}.prototype.${2:method_name} = function(${3:first_argument}) {
-	    ${4:// body...}
-	 };
-
+	/**
+	 * Description of the public method 
+	 * 
+	 * @example
+	 * var foo = $1.$2 ...
+	 *
+	 * @param {type} $3
+	 * @return {type}
+	 */
+	${1:class_name}.prototype.${2:method_name} = function(${3:first_argument}) {
+	   ${4:// body...}
+	};
 # Private
 snippet private
-	 /**
-	  * Description of the private method 
-	  * 
-	  * @private
-	  * @param {type} $3
-	  * @return {type}
-	  */
-	 ${1:class_name}.prototype._${2:method_name} = function(${3:first_argument}) {
-	    ${4:// body...}
-	 };
-
+	/**
+	 * Description of the private method 
+	 * 
+	 * @private
+	 * @param {type} $3
+	 * @return {type}
+	 */
+	${1:class_name}.prototype._${2:method_name} = function(${3:first_argument}) {
+		${4:// body...}
+	};
+	
 # static
 snippet static
-	 /**
-	  * Description of the static method 
-	  * 
-	  * @static
-	  * @private
-	  * @param {type} $3
-	  * @return {type}
-	  */
-	 ${1:class_name}.prototype._${2:method_name} = function(${3:first_argument}) {
-	    ${4:// body...}
-	 };
+	/**
+	 * Description of the static method 
+	 * 
+	 * @static
+	 * @private
+	 * @param {type} $3
+	 * @return {type}
+	 */
+	${1:class_name}.prototype._${2:method_name} = function(${3:first_argument}) {
+		${4:// body...}
+	};
 # factory
 snippet factory
-   /**
-	  * Description of the factory method 
-	  * 
-	  * @static
-	  * @param {type} $3
-	  * @return {$1}
-	  */
-	 ${1:class_name}.prototype.${2:method_name} = function(${3:first_argument}) {
-	    ${4:// body...}
-	 };
+	/**
+	 * Description of the factory method 
+	 * 
+	 * @static
+	 * @param {type} $3
+	 * @return {$1}
+	 */
+	${1:class_name}.prototype.${2:method_name} = function(${3:first_argument}) {
+		${4:// body...}
+	};
 # Class
 snippet class
-	 /**
-	  * @class $1
-	  * @exports $1 as $2
-	  */
-	 (function() {
-   /**
-		* Description of the class, it's uses and brief implementation information.
-		* @name $2
-		* @constructor
-		*/
-   function ${1:class_name}() {
-
-   }
-   ${2:namespaced_object} = $1;	
-   
-   }());
-
+	/**
+	 * @class $1
+	 * @exports $1 as $2
+	 */
+	(function() {
+	/**
+	 * Description of the class, it's uses and brief implementation information.
+	 * @name $2
+	 * @constructor
+	 */
+	function ${1:class_name}() {
+	
+	}
+	${2:namespaced_object} = $1;	
+	
+	}());
+	
 # Singleton
 snippet single
 	/**
@@ -77,28 +76,28 @@ snippet single
 	 * @exports $1 as $2
 	 */
 	(function() {
-
-		/**
-		 * Description of the class, it's uses and brief implementation information.
-		 * @name $2
-		 * @constructor
-		 */
-		function ${1:class_name}() {
-
-		}
-		
-	   ${2:namespaced_object} = new $1();	
+	
+	/**
+	 * Description of the class, it's uses and brief implementation information.
+	 * @name $2
+	 * @constructor
+	 */
+	function ${1:class_name}() {
+	
+	}
+	
+	${2:namespaced_object} = new $1();	
 	}());
 # TestCase
 snippet testcase
 	TestCase( "${1:test_case_name}", {
-		
+	
 		setUp: function() {
 			${2}
 		},
-
+	
 		tearDown: function() {
-
+	
 		}
 	} );
 # Test
@@ -155,7 +154,4 @@ snippet timeout
 	Window.setTimeout(function() {
 		${2}
 	}, ${1:10});
-# IG callback
-snippet callback
-	IG.util.Fn.callback(${1:fn}, ${2:scope}, ${3:args}, ${4:argPosition});
-
+	
