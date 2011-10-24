@@ -4,6 +4,7 @@ set expandtab
 set tabstop=3
 set autoindent
 set smartindent
+set shiftwidth=3
 set showmatch
 set ruler
 set number
