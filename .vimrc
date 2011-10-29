@@ -48,3 +48,6 @@ call vundle#rc()
  "
  " see :h vundle for more details or wiki for FAQ
  " NOTE: comments after Bundle command are not allowed..
+ "
+ " key mappings
+ :imap jj <Esc>
