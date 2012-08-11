@@ -23,7 +23,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
  " let Vundle manage Vundle
- " required! 
+ " required!
  Bundle 'gmarik/vundle'
 
  " My Bundles here:
@@ -34,6 +34,7 @@ call vundle#rc()
  Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
  Bundle 'scrooloose/nerdtree'
  Bundle 'msanders/snipmate.vim'
+ Bundle 'tpope/vim-surround'
  " vim-scripts repos
  Bundle 'L9'
  Bundle 'FuzzyFinder'
@@ -41,7 +42,7 @@ call vundle#rc()
  Bundle 'git://git.wincent.com/command-t.git'
  " ...
 
- filetype plugin indent on     " required! 
+ filetype plugin indent on     " required!
  "
  " Brief help
  " :BundleList          - list configured bundles
@@ -52,5 +53,36 @@ call vundle#rc()
  " see :h vundle for more details or wiki for FAQ
  " NOTE: comments after Bundle command are not allowed..
  "
+ "
+
+
+" Shortcut to rapidly toggle `set list`
+nmap <leader>l :set list!<CR>
+
+" Use the same symbols as TextMate for tabstops and EOLs
+set listchars=tab:▸\ ,eol:¬
+"Invisible character colors
+highlight NonText guifg=#4a4a59
+highlight SpecialKey guifg=#4a4a59
+
+"strip trailing whitespace
+function! <SID>StripTrailingWhitespaces()
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    %s/\s\+$//e
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+nnoremap <silent> <leader>s :call <SID>StripTrailingWhitespaces()<CR>
+
+
+
  " key mappings
  :imap jj <Esc>
+ :inoremap <C-Space> <C-x><C-o>
+ :inoremap <C-j> <C-n>
+ :inoremap <C-k> <C-p>
