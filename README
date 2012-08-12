@@ -1,1 +1,38 @@
 My Vim configuration. Storing on git hub cos its easier that way
+
+To install this vim config on OSX:-
+
+1. Clone Vim-config
+
+```
+$ git clone git@github.com:llemirtrauts/Vim-config
+
+```
+
+2. Set up symlinks
+
+```
+$ cd ~
+$ ln -s ~/Dev/tools/Vim-config .vim
+$ ln -s ~/Dev/tools/.vimrc .vimrc
+```
+
+3. Download vundle
+
+```
+git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+```
+
+4. run vundle
+
+```
+$ mvim
+ then in vim
+:BundleInstall
+```
+
+5. Setup symlink for javascript.snippets
+
+```
+ln -s ~/Dev/tools/Vim-config/javascript.snippets ~/Dev/tools/Vim-config/bundle/snipmate.vim/snippets/javascript.snippets
+```
