@@ -37,9 +37,13 @@ call vundle#rc()
  Bundle 'tpope/vim-surround'
  " vim-scripts repos
  Bundle 'L9'
- Bundle 'FuzzyFinder'
  " non github repos
  Bundle 'git://git.wincent.com/command-t.git'
+ Bundle 'fholgado/minibufexpl.vim'
+ Bundle 'scrooloose/nerdcommenter'
+ Bundle 'vim-scripts/simple-pairs'
+ Bundle 'wincent/Command-T'
+ Bundle 'scrooloose/syntastic'
  " ...
 
  filetype plugin indent on     " required!
