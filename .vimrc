@@ -1,10 +1,10 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 set expandtab
-set tabstop=3
+set tabstop=2
 set autoindent
 set smartindent
-set shiftwidth=3
+set shiftwidth=2
 set showmatch
 set ruler
 set number
@@ -21,6 +21,11 @@ colorscheme molokai
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+
+
+if has('gui_running')
+  set guifont=SourceCodePro-Light
+endif
 
  " let Vundle manage Vundle
  " required!
@@ -39,7 +44,6 @@ call vundle#rc()
  Bundle 'L9'
  " non github repos
  Bundle 'git://git.wincent.com/command-t.git'
- Bundle 'fholgado/minibufexpl.vim'
  Bundle 'scrooloose/nerdcommenter'
  Bundle 'vim-scripts/simple-pairs'
  Bundle 'wincent/Command-T'
